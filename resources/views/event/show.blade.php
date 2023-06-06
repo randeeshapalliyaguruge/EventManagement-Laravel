@@ -92,8 +92,9 @@
                         <p class="text-gray-600">
                             Reserve Event
                         </p>
-
-                        <button class="text-lg block font-semibold py-2 px-6 text-green-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Reserve</button>
+                        <a href="{{route('event.reservation', 1)}}">
+                            <button class="text-lg block font-semibold py-2 px-6 text-green-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Reserve</button>
+                        </a>
                     </div>
 
                     {{-- Reviews and comment --}}

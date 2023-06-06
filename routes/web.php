@@ -26,8 +26,6 @@ Route::middleware([
 
 });
 
-
-
 Route::get('event/{id}', function ($id) {
     return view('event.show', [
         'event' => $id
@@ -36,6 +34,11 @@ Route::get('event/{id}', function ($id) {
 //->where('id', '[0-9]+')
 ->name('event.show');
 
+Route::get('reserve/{id}', function ($id) {
+    return view('event.reservation', [
+        'reserve' => $id
+    ]);
+})->name('event.reservation');
 
 Route::get('/', function () {
     return view('home');
