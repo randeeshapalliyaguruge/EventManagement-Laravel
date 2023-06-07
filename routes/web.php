@@ -23,7 +23,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-
 });
 
 Route::get('event/{id}', function ($id) {
