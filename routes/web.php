@@ -17,11 +17,30 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
+])
+->prefix('admin')
+->group(function () {
 
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/events', function () {
+        return view('admin.event.index');
+    })->name('admin.event.index');
+
+    Route::get('/categories', function () {
+        return view('admin.category.index');
+    })->name('admin.category.index');
+
+    Route::get('/reservations', function () {
+        return view('admin.reservations.index');
+    })->name('admin.reservation.index');
+
+    Route::get('/users', function () {
+        return view('admin.users.index');
+    })->name('admin.user.index');
+
 
 });
 
