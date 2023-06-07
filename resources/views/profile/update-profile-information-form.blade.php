@@ -154,13 +154,13 @@
         </div>
 
         <!-- country -->
-        {{-- <div class="col-span-4">
+        <div class="col-span-4">
             <x-label for="country" value="{{ __('Country') }}" />
             <x-input-country id="country" type="text" class="mt-1 block w-full"
                 wire:model.defer="state.country"
                 autocomplete="country" />
             <x-input-error for="country" class="mt-2" />
-        </div> --}}
+        </div>
     </x-slot>
 
     <x-slot name="actions">
