@@ -21,6 +21,14 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'first_name' => ['required', 'string', 'max:225'],
+            'last_name' => ['required', 'string', 'max:225'],
+            'phone' => ['required', 'string', 'max:15'],
+            'address' => ['nullable'],
+            'country' => ['nullable'],
+            'city' => ['nullable'],
+            'state_province' => ['nullable'],
+            'zip_code' => ['nullable'],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -34,8 +42,17 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'first_name' => $input['first_name'],
+                'last_name' => $input['last_name'],
+                'phone' => $input['phone'],
+                'address' => $input['address'],
+                'country' => $input['country'],
+                'city' => $input['city'],
+                'state_province' => $input['state_province'],
+                'zip_code' => $input['zip_code'],
             ])->save();
         }
+
     }
 
     /**
@@ -49,6 +66,14 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'name' => $input['name'],
             'email' => $input['email'],
             'email_verified_at' => null,
+            'first_name' => $input['first_name'],
+            'last_name' => $input['last_name'],
+            'phone' => $input['phone'],
+            'address' => $input['address'],
+            'country' => $input['country'],
+            'city' => $input['city'],
+            'state_province' => $input['state_province'],
+            'zip_code' => $input['zip_code'],
         ])->save();
 
         $user->sendEmailVerificationNotification();
