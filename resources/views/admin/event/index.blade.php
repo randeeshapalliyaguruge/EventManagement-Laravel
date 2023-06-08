@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="flex justify-end mr-5 mt-5 mb-5">
                     <a href="{{ route('admin.events.create') }}"
-                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Create New Event</a>
+                        class="bg-blue-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Create New Event</a>
                 </div>
 
                 <x-table>
@@ -28,7 +28,7 @@
                     <x-slot name="body">
                         @foreach ($events as $event)
                             <x-tr>
-                                <x-td>{{ $event->event_name }}</x-td>
+                                <x-td class="px-6 py-4 font-medium text-gray-900">{{ $event->event_name }}</x-td>
                                 <x-td>
                                     @if ($event->hasMedia('image'))
                                         <img src="{{ $event->getFirstMediaUrl('image') }}" alt="{{ $event->event_name }}" />
@@ -36,7 +36,10 @@
                                         -
                                     @endif
                                 </x-td>
-                                <x-td>{{ $event->category->name }}</x-td>
+                                <x-td>
+                                    <span
+                                    class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600">
+                                    {{ $event->category->name }}</x-td></span>
                                 {{-- <x-td>{{ $event->address }}</x-td> --}}
                                 <x-td>{{ $event->city }}</x-td>
                                 <x-td>{{ $event->date }}</x-td>

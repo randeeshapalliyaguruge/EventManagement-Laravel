@@ -11,24 +11,30 @@
 
                 <x-table>
                     <x-slot name="head">
-                        <x-th>Event</x-th>
+                        <x-th >Event</x-th>
                         <x-th>First Name</x-th>
                         <x-th>First Nam</x-th>
                         <x-th>Phone</x-th>
                         <x-th>Email</x-th>
                         <x-th>City</x-th>
                         <x-th>Website</x-th>
-                        <x-th>Actions</x-th>
+                        <x-th>Created At</x-th>
                     </x-slot>
                     <x-slot name="body">
                         @foreach ($reservations as $reservation)
                             <x-tr>
-                                <x-td>{{ $reservation->event->event_name }}</x-td>
+                                <x-td class="px-6 py-4 font-medium text-gray-900">{{ $reservation->event->event_name }}</x-td>
                                 <x-td>{{ $reservation->first_name }}</x-td>
                                 <x-td>{{ $reservation->last_name }}</x-td>
                                 <x-td>{{ $reservation->phone }}</x-td>
                                 <x-td>{{ $reservation->email }}</x-td>
                                 <x-td>{{ $reservation->city }}</x-td>
+                                <x-td>
+                                    <a href="{{ $reservation->website }}" target="_blank">
+                                        Website
+                                    </a>
+                                </x-td>
+                                <x-td>{{ $reservation->created_at->format('d/m/Y h:ia') }}</x-td>
                                 <x-td class="flex gap-3">
                                     {{-- <a href="{{ route('admin.reservation.edit', $reservation->event->id) }}"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
