@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController as EventController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\AdminReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +39,7 @@ Route::middleware([
         return view('admin.category.index');
     })->name('category.index');
 
-    Route::get('/reservations', function () {
-        return view('admin.reservations.index');
-    })->name('reservation.index');
+    Route::get('/reservations', [AdminReservationController::class, 'index'])->name('reservation.index');
 
     Route::get('/users', function () {
         return view('admin.users.index');
@@ -55,6 +54,7 @@ Route::get('event/{event}', [EventController::class, 'show'])
     ->name('event.show');
 
 Route::get('reserve/{event}', [EventController::class, 'reservation'])
+    ->middleware(['auth:sanctum', config('jetstream.auth_session')])
     ->name('event.reservation');
 
 Route::get('/', HomeController::class)->name('home');
