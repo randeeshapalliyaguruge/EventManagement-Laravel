@@ -52,7 +52,9 @@
                                     <form action="{{ route('admin.events.destroy', $event->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
+
                                         <button type="submit"
+                                        onclick="return confirm('Are you sure you want to delete this Event?')"
                                             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                                     </form>
                                 </x-td>

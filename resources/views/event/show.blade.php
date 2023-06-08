@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dancing event') }}
+            {{ $event->event_name }}
         </h2>
     </x-slot>
 
@@ -11,25 +11,17 @@
         <section class="bg-white dark:bg-gray-700 mb-4">
                 <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 ">
                     <div class="mr-auto place-self-center lg:col-span-7">
-                        <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Payments tool for software companies</h1>
-                        <p class="max-w-2xl mb-8 font-light text-gray-500 lg:mb-0 md:text-lg lg:text-xl dark:text-gray-400">Date: </p>
-                        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-0 md:text-lg lg:text-xl dark:text-gray-400">Stating Time: </p>
-                        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Ending Time: </p>
+                        <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">{{ $event->event_name }}</h1>
+                        <p class="max-w-2xl mb-8 font-light text-gray-500 lg:mb-0 md:text-lg lg:text-xl dark:text-gray-400">Date: {{ $event->date }}</p>
+                        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-0 md:text-lg lg:text-xl dark:text-gray-400">Stating Time: {{ $event->start_time }}</p>
+                        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Ending Time: {{ $event->end_time }}</p>
 
                     </div>
                     <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                        <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup">
+                        <img src="{{ $event->getFirstMediaUrl('image') }}" alt="{{ $event->event_name }}" class="w-80 h-80 rounded-lg">
                     </div>
+
                 </div>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -52,7 +44,7 @@
                             Event Name
                         </p>
                         <p>
-                            Jane Doe
+                            {{ $event->event_name }}
                         </p>
                     </div>
                     <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
@@ -60,7 +52,9 @@
                             Location
                         </p>
                         <p>
-                            Product Manager
+                            {{ $event-> address }}, {{ $event-> city}}, {{ $event-> zip_code}}
+
+
                         </p>
                     </div>
                     <div class="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4 border-b">
@@ -68,7 +62,9 @@
                             Category
                         </p>
                         <p>
-                            Category type
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-s font-medium bg-green-100 text-green-800">
+                            {{ $event-> category->name }}
+                            </span>
                         </p>
                     </div>
 
@@ -77,7 +73,7 @@
                             Description
                         </p>
                         <p>
-                            Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+                            {{ $event-> description }}
                         </p>
                     </div>
 
@@ -86,7 +82,7 @@
                             Price per ticket
                         </p>
                         <p>
-                            Rs. 12000/=
+                            Rs. {{ $event-> price }}/=
                         </p>
                     </div>
 
@@ -94,7 +90,7 @@
                         <p class="text-gray-600">
                             Reserve Event
                         </p>
-                        <a href="{{route('event.reservation', 1)}}">
+                        <a href="{{ route('event.reservation', $event->id) }}">
                             <button class="text-lg block font-semibold py-2 px-6 text-green-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Reserve</button>
                         </a>
                     </div>

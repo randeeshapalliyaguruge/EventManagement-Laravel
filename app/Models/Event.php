@@ -48,6 +48,13 @@ class Event extends Model implements HasMedia
         return $this->belongsToMany(Category::class);
     }
 
+    //register the media collection as image
+    public function registerCollections(): void
+    {
+        $this->addMediaCollection('image')
+            ->singleFile();
+    }
+
     // public function registerMediaCollections(Media $media = null): void
     // {
     //     $this->addMediaCollection('thumb')
@@ -65,11 +72,11 @@ class Event extends Model implements HasMedia
     //                 ->height(250);
     //         });
     // }
-    public function registerMediaCollections(?Media $media = null): void
-{
-    $this->addMediaCollection('thumb')
-        ->singleFile()
-        ->setWidth(290)
-        ->setHeight(250);
-}
+//     public function registerMediaCollections(?Media $media = null): void
+// {
+//     $this->addMediaCollection('thumb')
+//         ->singleFile()
+//         ->setWidth(290)
+//         ->setHeight(250);
+// }
 }

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('longitude', 11, 8)->nullable();
 
             $table->text('description');
-            $table->string('price', 10);
+            $table->string('price', 10, 2);
 
             $table->date('date');
             $table->time('start_time');

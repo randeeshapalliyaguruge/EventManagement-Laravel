@@ -37,7 +37,7 @@ class EventController extends Controller
     {
         $event->delete();
 
-        return redirect()->route('admin.event.index');
+        return redirect()->route('admin.events.index');
     }
 
 

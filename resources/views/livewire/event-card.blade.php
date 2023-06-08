@@ -1,7 +1,7 @@
 <div class=" bg-gray-100 flex justify-center items-center">
     <div class="w- p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all transform duration-500">
         @if ($event->hasMedia('image'))
-        <img class="w-64 object-cover rounded-t-md" src="{{ $event->getFirstMediaUrl('image', 'thumb') }}" alt="{{ $event->event_name }}" />
+        <img class="w-64 object-cover rounded-t-md" src="{{ $event->getFirstMediaUrl('image') }}" alt="{{ $event->event_name }}" />
     @else
   <img class="w-64 object-cover rounded-t-md" src="https://images.unsplash.com/photo-1509223197845-458d87318791" alt="" />
     @endif
