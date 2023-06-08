@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\MediaCollections\File;
 
 class Event extends Model implements HasMedia
 {
@@ -35,4 +37,39 @@ class Event extends Model implements HasMedia
         'website',
 
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+    // public function registerMediaCollections(Media $media = null): void
+    // {
+    //     $this->addMediaCollection('thumb')
+    //         ->width(290)
+    //         ->height(250);
+    // }
+
+    // public function registerMediaCollections(?Media $media = null): void
+    // {
+    //     $this->addMediaCollection('thumb')
+    //         ->singleFile()
+    //         ->registerMediaConversions(function (Media $media) {
+    //             $this->addMediaConversion('thumb')
+    //                 ->width(290)
+    //                 ->height(250);
+    //         });
+    // }
+    public function registerMediaCollections(?Media $media = null): void
+{
+    $this->addMediaCollection('thumb')
+        ->singleFile()
+        ->setWidth(290)
+        ->setHeight(250);
+}
 }

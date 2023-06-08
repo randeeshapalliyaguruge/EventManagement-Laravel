@@ -8,40 +8,16 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="container mx-auto">
-
-<div class="grid grid-cols-4 gap-4">
-
-<!-- POT -->
-  @livewire('event-card',[
-    'event' => []
-  ])
-
-    @livewire('event-card',[
-        'event' => []
-    ])
-
-    @livewire('event-card',[
-        'event' => []
-    ])
-
-    @livewire('event-card',[
-        'event' => []
-    ])
-
-    @livewire('event-card',[
-        'event' => []
-    ])
-
-    @livewire('event-card',[
-        'event' => []
-    ])
-
-    <livewire:event-card />
-
-<!-- POT -->
-</div>
+                <div class="grid grid-cols-4 gap-4 ">
+                    @foreach ($events as $event)
+                        @livewire('event-card', [
+                            'event' => $event
+                        ])
+                    @endforeach
+                </div>
 
             </div>
         </div>
     </div>
+    {{ $events->links() }}
 </x-app-layout>
