@@ -48,7 +48,11 @@ class Event extends Model implements HasMedia
         return $this->belongsToMany(Category::class);
     }
 
-    //register the media collection as image
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function registerCollections(): void
     {
         $this->addMediaCollection('image')

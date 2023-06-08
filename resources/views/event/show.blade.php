@@ -96,16 +96,16 @@
 
                     </div>
 
-                    {{-- Reviews and comment --}}
+                    {{-- Reviews and Add comment --}}
                     <div class="bg-white">
                         <div class="px-4 pt-6">
 
                             {{-- Display Reviews --}}
-                                    @livewire('event-reviews', [
-                                        'event' => $event
-                                        ])
+                            @livewire('event-reviews', [
+                                'event' => $event
+                                ])
 
-                            {{-- Post a review --}}
+                            {{-- Post a comment --}}
                             @livewire('create-event-review', [
                                 'event' => $event
                                 ])
