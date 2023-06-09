@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminReservationController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\MyEventsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,5 +68,7 @@ Route::get('event/{event}', [EventController::class, 'show'])
 Route::get('reserve/{event}', [EventController::class, 'reservation'])
     ->middleware(['auth:sanctum', config('jetstream.auth_session')])
     ->name('event.reservation');
+
+Route::get('/myevents', MyEventsController::class)->name('myevents');
 
 Route::get('/', HomeController::class)->name('home');

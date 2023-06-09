@@ -14,7 +14,7 @@
             <line x1="8" y1="2" x2="8" y2="6" />
             <line x1="3" y1="10" x2="21" y2="10" />
           </svg>
-          Date and Time {{$event->date}} {{$event->start_time}}
+          {{$event->date}} - {{$event->start_time}}
         </div>
         <div class="flex items-center mt-1 text-sm text-gray-700">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1">
@@ -25,7 +25,7 @@
         </div>
 
         <div class="mt-4 mb-2 flex justify-between pl-4 pr-2">
-          <button class="block text-xl font-semibold text-gray-700 cursor-auto">{{$event->price}}</button>
+          {{-- <button class="block text-xl font-semibold text-gray-700 cursor-auto">{{$event->price}}</button> --}}
           <a href="{{route('event.show', $event->id)}}">
           <button class="text-lg block font-semibold py-2 px-6 text-green-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">View ></button>
           </a>

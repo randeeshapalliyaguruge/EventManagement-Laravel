@@ -11,7 +11,7 @@
 
                 <x-table>
                     <x-slot name="head">
-                        <x-th >Event</x-th>
+                        <x-th >User</x-th>
                         <x-th>First Name</x-th>
                         <x-th>Last Name</x-th>
                         <x-th>Phone</x-th>
@@ -27,7 +27,6 @@
                                 <x-td>{{ $user->last_name }}</x-td>
                                 <x-td>{{ $user->phone }}</x-td>
                                 <x-td>{{ $user->email }}</x-td>
-                                <x-td>{{ $user->address }}</x-td>
                                 <x-td>{{ $user->city }}</x-td>
                                 <x-td>{{ $user->created_at->format('d/m/Y h:ia') }}</x-td>
                                 <x-td class="flex gap-3">

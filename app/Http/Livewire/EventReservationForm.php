@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Reservation;
+use App\Models\Event;
 use Livewire\Component;
 
 class EventReservationForm extends Component
@@ -41,6 +42,9 @@ class EventReservationForm extends Component
         $this->reservation->save();
 
         $this->emit('reservationCreated');
+
+        //Increment the subscription count
+        $this->event->increment('subscription_count');
 
         //show a success message
         session()->flash('message', 'Reservation created successfully!');
