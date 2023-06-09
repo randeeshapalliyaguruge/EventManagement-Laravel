@@ -36,6 +36,9 @@ class Event extends Model implements HasMedia
         'email',
         'website',
 
+        'view_count',
+        'substription_count',
+
     ];
 
     public function category()

@@ -9,11 +9,15 @@ class EventController extends Controller
 {
     public function index()
     {
+        $events = Event::orderby('view_count', 'desc')->get();
+
         return view('event.index');
     }
 
     public function show(Event $event)
     {
+        $event->increment('view_count');
+
         return view('event.show', [
             'event' => $event
         ]);

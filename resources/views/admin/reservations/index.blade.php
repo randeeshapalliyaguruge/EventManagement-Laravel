@@ -23,7 +23,7 @@
                     <x-slot name="body">
                         @foreach ($reservations as $reservation)
                             <x-tr>
-                                <x-td class="px-6 py-4 font-medium text-gray-900">{{ $reservation->event->event_name }}</x-td>
+                                <x-td class="px-6 py-4 font-medium text-gray-900"><a href="{{ route('event.show', $reservation->event->id) }}">{{ $reservation->event->event_name }}</a></x-td>
                                 <x-td>{{ $reservation->first_name }}</x-td>
                                 <x-td>{{ $reservation->last_name }}</x-td>
                                 <x-td>{{ $reservation->phone }}</x-td>

@@ -18,7 +18,6 @@
                         <x-th>Event</x-th>
                         <x-th>Image</x-th>
                         <x-th>Category</x-th>
-                        {{-- <x-th>Address</x-th> --}}
                         <x-th>City</x-th>
                         <x-th>Date</x-th>
                         <x-th>Phone</x-th>
@@ -28,7 +27,7 @@
                     <x-slot name="body">
                         @foreach ($events as $event)
                             <x-tr>
-                                <x-td class="px-6 py-4 font-medium text-gray-900">{{ $event->event_name }}</x-td>
+                                <x-td class="px-6 py-4 font-medium text-gray-900"><a href="{{ route('event.show', $event->id) }}">{{ $event->event_name }}</a></x-td>
                                 <x-td>
                                     @if ($event->hasMedia('image'))
                                         <img src="{{ $event->getFirstMediaUrl('image') }}" alt="{{ $event->event_name }}" />

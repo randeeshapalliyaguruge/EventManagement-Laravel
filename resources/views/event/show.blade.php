@@ -64,6 +64,9 @@
                         <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-0 md:text-lg lg:text-xl dark:text-gray-400">Stating Time: {{ $event->start_time }}</p>
                         <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Ending Time: {{ $event->end_time }}</p>
 
+                        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">View Count: {{ $event->view_count }}</p>
+                        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Subscription Count: {{ $event->subscription_count }}</p>
+
                     </div>
                     <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
                         <img src="{{ $event->getFirstMediaUrl('image') }}" alt="{{ $event->event_name }}" class="w-80 h-80 rounded-lg">
