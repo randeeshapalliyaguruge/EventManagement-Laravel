@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController as EventController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminReservationController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,9 +47,10 @@ Route::middleware([
 
     Route::get('/reservations', [AdminReservationController::class, 'index'])->name('reservation.index');
 
-    Route::get('/users', function () {
-        return view('admin.users.index');
-    })->name('user.index');
+    // Route::get('/users', function () {
+    //     return view('admin.users.index');
+    // })->name('user.index');
+    Route::get('/users', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('user.index');
 
 });
 

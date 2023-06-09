@@ -13,7 +13,7 @@
                     <x-slot name="head">
                         <x-th >Event</x-th>
                         <x-th>First Name</x-th>
-                        <x-th>First Nam</x-th>
+                        <x-th>Last Name</x-th>
                         <x-th>Phone</x-th>
                         <x-th>Email</x-th>
                         <x-th>City</x-th>
