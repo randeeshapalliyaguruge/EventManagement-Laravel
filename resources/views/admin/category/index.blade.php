@@ -26,19 +26,24 @@
                     <x-slot name="body">
                         @foreach ($categories as $category)
                             <x-tr>
-                                <x-td>{{ $category->name }}</x-td>
+                                <x-td class="px-6 py-4 font-medium text-gray-900">{{ $category->name }}</x-td>
                                 <x-td>{{ $category->description }}</x-td>
                                 <x-td class="flex gap-3">
                                     <a href="{{ route('admin.category.edit', $category->id) }}"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
-                                    <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
 
-                                        <button type="submit"
-                                        onclick="return confirm('Are you sure you want to delete this Category?')"
-                                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
-                                    </form>
+                                    @if ($category->events()->exists())
+                                        <button disabled class="bg-gray-500 text-white font-bold py-2 px-4 rounded cursor-not-allowed">Delete</button>
+                                        {{-- <p class="text-red-500">This category is referenced in events and cannot be deleted.</p> --}}
+                                    @else
+                                        <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" onclick="return confirm('Are you sure you want to delete this Category?')"
+                                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                                        </form>
+                                    @endif
                                 </x-td>
                             </x-tr>
                         @endforeach
