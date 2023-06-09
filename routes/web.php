@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminReservationController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,9 +42,12 @@ Route::middleware([
         'index', 'create', 'edit', 'destroy'
     ]);
 
-    Route::get('/categories', function () {
-        return view('admin.category.index');
-    })->name('category.index');
+    // Route::get('/categories', function () {
+    //     return view('admin.category.index');
+    // })->name('category.index');
+    Route::resource('/category', AdminCategoryController::class)->only([
+        'index', 'create', 'edit', 'destroy'
+    ]);
 
     Route::get('/reservations', [AdminReservationController::class, 'index'])->name('reservation.index');
 
