@@ -17,6 +17,11 @@ use App\Http\Controllers\Admin\AdminReservationController;
 |
 */
 
+Route::get('/dev', function(){
+
+    return true;
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
