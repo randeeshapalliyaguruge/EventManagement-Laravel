@@ -71,4 +71,6 @@ Route::get('reserve/{event}', [EventController::class, 'reservation'])
 
 Route::get('/myevents', MyEventsController::class)->name('myevents');
 
+Route::get('/past-events', [HomeController::class, 'pastEvents'])->name('past-events');
+
 Route::get('/', HomeController::class)->name('home');

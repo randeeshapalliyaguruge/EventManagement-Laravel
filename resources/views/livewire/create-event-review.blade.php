@@ -4,7 +4,7 @@
             Post A Review
         </h3>
         <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
-            Write about your experince during your stay
+            Write about your experince
         </p>
         <form wire:submit.prevent="save" class="relative bg-white pt-4">
 
@@ -35,7 +35,7 @@
                 <label for="comment" class="sr-only">Comment</label>
                 <textarea rows="2" name="comment" id="comment" wire:model="comment"
                     class="block w-full resize-none border-0 py-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                    placeholder="Write about your experince during your stay..."></textarea>
+                    placeholder="Write about your experince of this Event..."></textarea>
 
                 @error('comment')
                     <span class="text-red-500">{{ $message }}</span>

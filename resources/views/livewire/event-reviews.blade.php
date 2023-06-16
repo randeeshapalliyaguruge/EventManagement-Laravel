@@ -1,6 +1,6 @@
 <div>
     <h3 class="text-lg font-medium leading-7 text-gray-900">Reviews</h3>
-    <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Hotel reviews</p>
+    <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Event reviews</p>
     <div class="mt-6 space-y-10 divide-y divide-gray-200 border-b border-t border-gray-200 pb-10">
         @if ($reviews->count())
             @foreach ($reviews as $review)

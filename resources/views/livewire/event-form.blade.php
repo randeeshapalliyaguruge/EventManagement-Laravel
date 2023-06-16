@@ -120,6 +120,12 @@
                 <x-input-error for="check_out" class="mt-2" />
             </div>
 
+            <div class="col-span-1">
+                <x-label for="date" value="{{ __('Date') }}" />
+                <x-input id="date" type="date" class="mt-1 block w-full" wire:model="event.date" />
+                <x-input-error for="date" class="mt-2" />
+            </div>
+
             <div class="col-span-2">
                 <x-label for="price" value="{{ __('Price') }}" />
                 <x-input id="price" type="text" class="mt-1 block w-full" wire:model="event.price" />

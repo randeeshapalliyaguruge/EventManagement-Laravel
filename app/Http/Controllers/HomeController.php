@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -10,10 +11,37 @@ class HomeController extends Controller
     public function __invoke()
     {
 
-        $events = \App\Models\Event::orderBy('view_count', 'desc')->paginate(8);
 
-        return view('home', [
-            'events' => $events
+       $currentDate = Carbon::now()->toDateString();
+
+
+       $futureEvents = \App\Models\Event::where('date', '>', $currentDate)
+           ->orderBy('view_count', 'desc')
+           ->paginate(12);
+
+
+       $pastEvents = \App\Models\Event::where('date', '<=', $currentDate)
+           ->orderBy('view_count', 'desc')
+           ->paginate(12);
+
+       return view('home', [
+           'futureEvents' => $futureEvents,
+           'pastEvents' => $pastEvents
+       ]);
+   }
+
+   public function pastEvents()
+   {
+
+       $currentDate = Carbon::now()->toDateString();
+
+
+       $pastEvents = \App\Models\Event::where('date', '<=', $currentDate)
+           ->orderBy('view_count', 'desc')
+           ->paginate(12);
+
+       return view('past-events', [
+           'pastEvents' => $pastEvents
         ]);
     }
 }
