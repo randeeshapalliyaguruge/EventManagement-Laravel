@@ -5,5 +5,5 @@
     </svg>
 </a> --}}
 <a href="/">
-    <img src="{{ asset('/logo/logo.jpg') }}" width="50px">
+    <img src="{{ asset('/logo/logo.jpg') }}" width="150px">
 </a>
